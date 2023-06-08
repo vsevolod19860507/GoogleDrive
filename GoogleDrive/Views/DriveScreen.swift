@@ -108,7 +108,7 @@ struct DriveListRow: View {
                     let childrenFolderCount = children.filter { $0.mimeType == "application/vnd.google-apps.folder" }.count
                     HStack {
                         Text("^[\(childrenFolderCount) folder](inflect: true)")
-                        Text("^[\(childrenFolderCount - children.count) file](inflect: true)")
+                        Text("^[\(children.count - childrenFolderCount) file](inflect: true)")
                     }
                 } else {
                     let fileSize = Measurement(value: file.size?.doubleValue ?? 0, unit: UnitInformationStorage.bytes).formatted(.byteCount(style: .memory))
